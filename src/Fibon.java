@@ -28,6 +28,14 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       c1.write(n);
 
       System.out.println("Waiting for result...");
+      boolean shouldStop = false;
+      while (!shouldStop)
+      {
+          long r = c1.readLong();
+          System.out.println("Super Prime Number found: " + r);
+          if (r == 0)
+            shouldStop = true;
+      }
       long r = c1.readLong();
       System.out.println("Result found: " + n);
 

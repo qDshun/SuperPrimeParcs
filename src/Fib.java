@@ -6,7 +6,12 @@ public class Fib implements AM{
         long n = info.parent.readLong();
         if (n < 3)
             return;
-        info.parent.write(100);
+        point p1 = info.createPoint();
+        channel c1 = p1.createChannel();
+        p1.execute("Fib");
+        c1.write(n-1);
+        if (isSuperPrime(n))
+            info.parent.write(n);
     }
 
     public static boolean isSuperPrime(long n)
