@@ -37,7 +37,9 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
         chans.add(c1);
       }
       for (channel c: chans) {
+        System.out.println("Before readlong");
           long primeNumber = c.readLong();
+          System.out.println("After readlong : " + primeNumber);
           if (primeNumber != 0)
             System.out.println("Found prime number: " + primeNumber);
 
