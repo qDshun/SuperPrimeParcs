@@ -21,29 +21,30 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
           BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("Fibon.data")));
           n = new Long(in.readLine()).longValue();
       } catch (IOException e) {e.printStackTrace(); return;}
-
-      point p1 = info.createPoint();
-      channel c1 = p1.createChannel();
-      p1.execute("Fib");
-      c1.write(n);
-
-      System.out.println("Waiting for result...");
-      boolean shouldStop = false;
-      while (!shouldStop)
+      List<point> points = new ArrayList<>();
+      List<channel> chans = new ArrayList<>();
+      for (int i=0; i<n; i++)
       {
-          long r = c1.readLong();
-          System.out.println("Super Prime Number found: " + r);
-          if (r == 0)
-            shouldStop = true;
+        point p1 = info.createPoint();
+        channel c1 = p1.createChannel();
+        points.add(p1);
+        chans.add(c1);
+        p1.execute("Fib");
+        c1.write(i);
       }
-      long r = c1.readLong();
-      System.out.println("Result found: " + n);
+      for (channel c: chans) {
+          long primeNumber = c.readLong();
+          if (primeNumber != 0)
+            System.out.println("Found prime number: " + primeNumber);
+
+      }
+      System.out.println("Waiting for result...");
 
       //System.out.println("F"+n+"="+r);
       try{
-          PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
-          out.println(r);
-          out.close();
+          //PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
+          //out.println(r);
+          //out.close();
       } catch (IOException e) {e.printStackTrace(); return;}
     }
 }

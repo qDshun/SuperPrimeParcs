@@ -4,15 +4,10 @@ public class Fib implements AM{
     public void run(AMInfo info){
         
         long n = info.parent.readLong();
-        System.out.println("Process started with n: " + n);
-        if (n < 3)
-            return;
-        point p1 = info.createPoint();
-        channel c1 = p1.createChannel();
-        p1.execute("Fib");
-        c1.write(n-1);
         if (isSuperPrime(n))
             info.parent.write(n);
+        else
+            info.parent.write(0);
     }
 
     public static boolean isSuperPrime(long n)
