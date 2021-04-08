@@ -5,21 +5,22 @@ import parcs.*;
 public class Fib implements AM{
     public void run(AMInfo info){
         String s = info.parent.read().toString();
+        SuperPrimeHelper inputHelper = (SuperPrimeHelper)info.parent.readObject();
         String[] strings = s.split(" ");
-        long currentIndex = Long.parseLong(strings[0]);
-        long superPrimesFound = Long.parseLong(strings[1]);
-        long targetSuperPrimeIndex = Long.parseLong(strings[2]);
+        long currentIndex = inputHelper.CurrentIndex();
+        long superPrimesFound = inputHelper.SuperPrimesFound();
+        long targetSuperPrimeIndex = inputHelper.TargetSuperPrimeIndex();
         if (isSuperPrime(currentIndex))
             superPrimesFound++;
         if(superPrimesFound == targetSuperPrimeIndex)
             info.parent.write(currentIndex);
         else {
             currentIndex++;
-            String stringToWrite = currentIndex + " " + superPrimesFound + " " + targetSuperPrimeIndex;
+            SuperPrimeHelper helper = new SuperPrimeHelper(currentIndex, superPrimesFound, targetSuperPrimeIndex);
             point p1 = info.createPoint();
             channel c1 = p1.createChannel();
             p1.execute("Fib");
-            c1.write(stringToWrite.getBytes());
+            c1.write(helper);
         }
     }
 

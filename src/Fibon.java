@@ -25,7 +25,8 @@ public class Fibon implements AM {
       point p1 = info.createPoint();
       channel c1 = p1.createChannel();
       p1.execute("Fib");
-      c1.write("0 0 " + n);
+      SuperPrimeHelper helper = new SuperPrimeHelper(0, 0, n);
+      c1.write(helper);
 
       System.out.println("Waiting for result...");
       string s = c1.read().toString();
