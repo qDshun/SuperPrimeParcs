@@ -4,7 +4,6 @@ public class Fib implements AM{
     public void run(AMInfo info){
         
         long n = info.parent.readLong();
-        info.parent.write(n);
         long spCount = 0;
         long startsFrom = 1;
         boolean found = false;
