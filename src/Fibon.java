@@ -26,8 +26,8 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
           n = new Long(in.readLine()).longValue();
       } catch (IOException e) {e.printStackTrace(); return;}
       System.out.println("Read from file success");
-      List<Point> points = new ArrayList<>();
-      List<Channel> chans = new ArrayList<>();
+      List<point> points = new ArrayList<>();
+      List<channel> chans = new ArrayList<>();
       for (long i=0; i<n; i++)
       {
         points.add(info.createPoint());
