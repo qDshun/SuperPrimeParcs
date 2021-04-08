@@ -4,22 +4,17 @@ import parcs.*;
 
 public class Fib implements AM{
     public void run(AMInfo info){
-        SuperPrimeHelper inputHelper = (SuperPrimeHelper)info.parent.readObject();
-        long currentIndex = inputHelper.CurrentIndex();
-        long superPrimesFound = inputHelper.SuperPrimesFound();
-        long targetSuperPrimeIndex = inputHelper.TargetSuperPrimeIndex();
-        if (isSuperPrime(currentIndex))
-            superPrimesFound++;
-
-            SuperPrimeHelper helper = new SuperPrimeHelper(currentIndex, superPrimesFound, targetSuperPrimeIndex);
-            point p1 = info.createPoint();
-            channel c1 = p1.createChannel();
-            p1.execute("Fib");
-            c1.write(helper);
-            SuperPrimeHelper outputHelper = (SuperPrimeHelper)c1.readObject();
-        if(superPrimesFound == targetSuperPrimeIndex){
-            info.parent.write(outputHelper);
-        }
+        long n = info.parent.readLong();
+        if (n < 3)
+            return;
+        info.parent.write(100);
+            /*
+        point p1 = info.createPoint();
+        channel c1 = p1.createChannel();
+        p1.execute("Fib");
+        c1.write(n-1);
+        if (isSuperPrime(n))
+            info.parent.write(n);*/
 
     }
 

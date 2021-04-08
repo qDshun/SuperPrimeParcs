@@ -25,17 +25,16 @@ public class Fibon implements AM {
       point p1 = info.createPoint();
       channel c1 = p1.createChannel();
       p1.execute("Fib");
-      SuperPrimeHelper helper = new SuperPrimeHelper(0, 0, n);
-      c1.write(helper);
+      c1.write(n);
 
       System.out.println("Waiting for result...");
-      SuperPrimeHelper helperResult = (SuperPrimeHelper)c1.readObject();
-      System.out.println("Result found: " + helperResult.CurrentIndex());
+      long res = c1.readLong();
+      System.out.println("Result found: " + res);
 
       //System.out.println("F"+n+"="+r);
       try{
           PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
-          out.println( helperResult.CurrentIndex());
+          out.println( res);
           out.close();
       } catch (IOException e) {e.printStackTrace(); return;}
     }
