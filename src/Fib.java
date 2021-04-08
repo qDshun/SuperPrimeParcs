@@ -4,10 +4,11 @@ public class Fib implements AM{
     public void run(AMInfo info){
         
         long n = info.parent.readLong();
-        if (isSuperPrime(n))
-            info.parent.write(n);
-        else
-            info.parent.write(0);
+        info.parent.write(n);
+        // if (isSuperPrime(n))
+        //     info.parent.write(n);
+        // else
+        //     info.parent.write(0);
     }
 
     public static boolean isSuperPrime(long n)
