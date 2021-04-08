@@ -23,16 +23,18 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
           BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("Fibon.data")));
           n = new Long(in.readLine()).longValue();
       } catch (IOException e) {e.printStackTrace(); return;}
+      System.out.println("Read from file success");
       List<point> points = new ArrayList<>();
       List<channel> chans = new ArrayList<>();
       for (int i=0; i<n; i++)
       {
         point p1 = info.createPoint();
         channel c1 = p1.createChannel();
-        points.add(p1);
-        chans.add(c1);
         p1.execute("Fib");
         c1.write(i);
+        System.out.println("Channel created " + i);
+        points.add(p1);
+        chans.add(c1);
       }
       for (channel c: chans) {
           long primeNumber = c.readLong();
