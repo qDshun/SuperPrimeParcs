@@ -1,7 +1,7 @@
 import java.io.*;
 import parcs.*;
 
-public class Fibon implements AM {
+public class Fibon implements AM {   //����� ���������
 
     public static void main(String[] args) {
         task curtask = new task();
@@ -29,7 +29,7 @@ public class Fibon implements AM {
 
       System.out.println("Waiting for result...");
       long r = c1.readLong();
-      System.out.println("Result found.");
+      System.out.println("Result found: " + n);
 
       //System.out.println("F"+n+"="+r);
       try{
@@ -39,3 +39,4 @@ public class Fibon implements AM {
       } catch (IOException e) {e.printStackTrace(); return;}
     }
 }
+
