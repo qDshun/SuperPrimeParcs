@@ -4,9 +4,7 @@ import parcs.*;
 
 public class Fib implements AM{
     public void run(AMInfo info){
-        String s = info.parent.read().toString();
         SuperPrimeHelper inputHelper = (SuperPrimeHelper)info.parent.readObject();
-        String[] strings = s.split(" ");
         long currentIndex = inputHelper.CurrentIndex();
         long superPrimesFound = inputHelper.SuperPrimesFound();
         long targetSuperPrimeIndex = inputHelper.TargetSuperPrimeIndex();

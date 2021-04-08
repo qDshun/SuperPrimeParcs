@@ -29,17 +29,13 @@ public class Fibon implements AM {
       c1.write(helper);
 
       System.out.println("Waiting for result...");
-      string s = c1.read().toString();
-      String[] strings = s.split(" ");
-      long currentIndex = Long.parseLong(strings[0]);
-      long superPrimesFound = Long.parseLong(strings[1]);
-      long targetSuperPrimeIndex = Long.parseLong(strings[2]);
-      System.out.println("Result found: " + currentIndex);
+      SuperPrimeHelper helperResult = (SuperPrimeHelper)c1.readObject();
+      System.out.println("Result found: " + helperResult.CurrentIndex());
 
       //System.out.println("F"+n+"="+r);
       try{
           PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
-          out.println(currentIndex);
+          out.println( helperResult.CurrentIndex());
           out.close();
       } catch (IOException e) {e.printStackTrace(); return;}
     }
