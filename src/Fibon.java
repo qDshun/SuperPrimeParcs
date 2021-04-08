@@ -1,4 +1,6 @@
+import java.awt.Point;
 import java.io.*;
+import java.nio.channels.Channel;
 import java.util.List;
 import java.util.ArrayList;
 import parcs.*;
@@ -24,17 +26,15 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
           n = new Long(in.readLine()).longValue();
       } catch (IOException e) {e.printStackTrace(); return;}
       System.out.println("Read from file success");
-      List<point> points = new ArrayList<>();
-      List<channel> chans = new ArrayList<>();
+      List<Point> points = new ArrayList<>();
+      List<Channel> chans = new ArrayList<>();
       for (long i=0; i<n; i++)
       {
-        point p1 = info.createPoint();
-        channel c1 = p1.createChannel();
-        p1.execute("Fib");
-        c1.write(i);
+        points.add(info.createPoint());
+        chans.add(points.get(i).createChannel());
+        points.get(i).execute("Fib");
+        chans.get(i).write(i);
         System.out.println("Channel created " + i);
-        points.add(p1);
-        chans.add(c1);
       }
       for (channel c: chans) {
         System.out.println("Before readlong");
