@@ -10,16 +10,17 @@ public class Fib implements AM{
         long targetSuperPrimeIndex = inputHelper.TargetSuperPrimeIndex();
         if (isSuperPrime(currentIndex))
             superPrimesFound++;
-        if(superPrimesFound == targetSuperPrimeIndex)
-            info.parent.write(currentIndex);
-        else {
-            currentIndex++;
+
             SuperPrimeHelper helper = new SuperPrimeHelper(currentIndex, superPrimesFound, targetSuperPrimeIndex);
             point p1 = info.createPoint();
             channel c1 = p1.createChannel();
             p1.execute("Fib");
             c1.write(helper);
+            SuperPrimeHelper outputHelper = (SuperPrimeHelper)c1.readObject();
+        if(superPrimesFound == targetSuperPrimeIndex){
+            info.parent.write(outputHelper);
         }
+
     }
 
     public static boolean isSuperPrime(long n)
