@@ -4,6 +4,7 @@ public class Fib implements AM{
     public void run(AMInfo info){
         
         long n = info.parent.readLong();
+        System.out.println("Process started with n: " + n);
         if (n < 3)
             return;
         point p1 = info.createPoint();
