@@ -5,6 +5,15 @@ public class Fib implements AM{
         
         long n = info.parent.readLong();
         info.parent.write(n);
+        long spCount = 0;
+        long startsFrom = 1;
+        boolean found = false;
+        while(spCount != n){
+            startsFrom += 2;
+            if(isSuperPrime(startsFrom))
+                spCount++;
+        }
+        info.parent.write(startsFrom);
         // if (isSuperPrime(n))
         //     info.parent.write(n);
         // else
