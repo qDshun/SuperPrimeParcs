@@ -28,13 +28,15 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       System.out.println("Read from file success");
       List<point> points = new ArrayList<>();
       List<channel> chans = new ArrayList<>();
-      for (long i=0; i<n; i++)
+      long val =0;
+      for (int i=0; i<n; i++)
       {
         points.add(info.createPoint());
         chans.add(points.get(i).createChannel());
         points.get(i).execute("Fib");
-        chans.get(i).write(i);
-        System.out.println("Channel created " + i);
+        chans.get(i).write(val);
+        System.out.println("Channel created " + val);
+        val++;
       }
       for (channel c: chans) {
         System.out.println("Before readlong");
