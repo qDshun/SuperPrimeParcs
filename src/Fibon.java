@@ -27,7 +27,8 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       } catch (IOException e) {e.printStackTrace(); return;}
       System.out.println("Read from file success");
       List<point> points = new ArrayList<>();
-      List<channel> chans = new ArrayList<>();
+      List<Channel> chans = new ArrayList<>();
+      List<int> primeNumbers = new ArrayList<>();
       long val =0;
       for (int i=0; i<n; i++)
       {
@@ -39,21 +40,21 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
         val++;
       }
       for (channel c: chans) {
-        System.out.println("Before readlong");
           long primeNumber = c.readLong();
-          System.out.println("After readlong : " + primeNumber);
           if (primeNumber != 0)
+            primeNumbers.add(primeNumber);
             System.out.println("Found prime number: " + primeNumber);
 
       }
       System.out.println("Waiting for result...");
 
-    //   //System.out.println("F"+n+"="+r);
-    //   try{
-    //       PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
-    //       out.println(r);
-    //       out.close();
-    //   } catch (IOException e) {e.printStackTrace(); return;}
+      //System.out.println("F"+n+"="+r);
+      try{
+          PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fibon.res")));
+          for(int i=0; i<primeNumbers.size(); i++)
+            out.println(primeNumbers.get(i));
+          out.close();
+      } catch (IOException e) {e.printStackTrace(); return;}
     }
 }
 

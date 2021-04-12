@@ -13,10 +13,6 @@ public class Fib implements AM{
                 spCount++;
         }
         info.parent.write(startsFrom);
-        // if (isSuperPrime(n))
-        //     info.parent.write(n);
-        // else
-        //     info.parent.write(0);
     }
 
     public static boolean isSuperPrime(long n)
