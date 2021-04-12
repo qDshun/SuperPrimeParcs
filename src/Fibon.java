@@ -28,7 +28,7 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       System.out.println("Read from file success");
       List<point> points = new ArrayList<>();
       List<Channel> chans = new ArrayList<>();
-      List<int> primeNumbers = new ArrayList<>();
+      List<Long> primeNumbers = new ArrayList<Long>();
       long val =0;
       for (int i=0; i<n; i++)
       {
