@@ -57,7 +57,7 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       Date date2 = new Date();
       Timestamp ts2 = new Timestamp(date2.getTime());
       System.out.println("Finished at: " + ts2.getTime());
-      long diff = ts1.getTime() - ts1.getTime();
+      long diff = ts1.getTime() - ts2.getTime();
       System.out.println("Total time: " + diff);
 
 
