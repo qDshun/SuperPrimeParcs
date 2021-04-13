@@ -34,8 +34,8 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       List<channel> chans = new ArrayList<>();
       List<Long> primeNumbers = new ArrayList<Long>();
       long val =0;
-      Date date = new Date();
-      Timestamp ts1 = new Timestamp(date.getTime());
+      Date date1 = new Date();
+      Timestamp ts1 = new Timestamp(date1.getTime());
       System.out.println("Started at: " + ts1.getTime());
       for (int i=0; i<n; i++)
       {
@@ -54,7 +54,8 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
 
       }
       System.out.println("Waiting for result...");
-      Timestamp ts2 = new Timestamp(date.getTime());
+      Date date2 = new Date();
+      Timestamp ts2 = new Timestamp(date2.getTime());
       System.out.println("Finished at: " + ts2.getTime());
       long diff = ts1.getTime() - ts1.getTime();
       System.out.println("Total time: " + diff);
