@@ -43,16 +43,15 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
         chans.add(points.get(i).createChannel());
         points.get(i).execute("Fib");
         chans.get(i).write(val);
-        System.out.println("Channel created " + val);
         val++;
       }
       for (channel c: chans) {
           long primeNumber = c.readLong();
           if (primeNumber != 0)
             primeNumbers.add(primeNumber);
-            System.out.println("Found prime number: " + primeNumber);
 
       }
+      System.out.println("Found prime numbers count: " + primeNumbers.size());
       System.out.println("Waiting for result...");
       Date date2 = new Date();
       Timestamp ts2 = new Timestamp(date2.getTime());
