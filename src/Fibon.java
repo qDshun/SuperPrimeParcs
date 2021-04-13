@@ -3,6 +3,10 @@ import java.io.*;
 import java.nio.channels.Channel;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
 import parcs.*;
 
 public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
@@ -30,6 +34,9 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
       List<channel> chans = new ArrayList<>();
       List<Long> primeNumbers = new ArrayList<Long>();
       long val =0;
+      Date date = new Date();
+      Timestamp ts1 = new Timestamp(date.getTime());
+      System.out.println("Started at: " + ts1.getTime());
       for (int i=0; i<n; i++)
       {
         points.add(info.createPoint());
@@ -47,6 +54,11 @@ public class Fibon implements AM {   //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï
 
       }
       System.out.println("Waiting for result...");
+      Timestamp ts2 = new Timestamp(date.getTime());
+      System.out.println("Finished at: " + ts2.getTime());
+      long diff = ts1.getTime() - ts1.getTime();
+      System.out.println("Total time: " + diff);
+
 
       //System.out.println("F"+n+"="+r);
       try{
